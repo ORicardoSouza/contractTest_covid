@@ -11,4 +11,4 @@ https://ajv.js.org/
 
 
 Obs: 
-Na Pasta Teste via Postam, existe uma arquivo com a collection de teste básico via postman.
+Na Pasta Teste via Postman, existe uma arquivo com a collection de teste básico via postman.
