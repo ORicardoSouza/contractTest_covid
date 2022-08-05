@@ -9,7 +9,7 @@
   "author": "Ricardo Souza",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^9.4.0"
+    "cypress": "10.0.0"
   },
   "devDependencies": {
     "ajv": "^8.11.0"
