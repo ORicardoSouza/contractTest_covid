@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "61c79f96-f477-4af6-af77-9955623e41ac",
+		"name": "Shift -  Avaliação",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21490874"
+	},
+	"item": [
+		{
+			"name": "test",
+			"item": [
+				{
+					"name": "getCountry",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"//Validação de contrato",
+									"const jsonSchema = {",
+									"    \"type\": \"object\",",
+									"    \"required\": [",
+									"        \"updated\",",
+									"        \"country\",",
+									"        \"countryInfo\",",
+									"        \"cases\",",
+									"        \"todayCases\",",
+									"        \"deaths\",",
+									"        \"todayDeaths\",",
+									"        \"recovered\",",
+									"        \"todayRecovered\",",
+									"        \"active\",",
+									"        \"critical\",",
+									"        \"casesPerOneMillion\",",
+									"        \"deathsPerOneMillion\",",
+									"        \"tests\",",
+									"        \"testsPerOneMillion\",",
+									"        \"population\",",
+									"        \"continent\",",
+									"        \"oneCasePerPeople\",",
+									"        \"oneDeathPerPeople\",",
+									"        \"oneTestPerPeople\",",
+									"        \"activePerOneMillion\",",
+									"        \"recoveredPerOneMillion\",",
+									"        \"criticalPerOneMillion\"",
+									"    ],",
+									"    \"properties\": {",
+									"        \"updated\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"country\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"countryInfo\": {",
+									"            \"type\": \"object\",",
+									"            \"required\": [",
+									"                \"_id\",",
+									"                \"iso2\",",
+									"                \"iso3\",",
+									"                \"lat\",",
+									"                \"long\",",
+									"                \"flag\"",
+									"            ],",
+									"            \"properties\": {",
+									"                \"_id\": {",
+									"                    \"type\": \"number\"",
+									"                },",
+									"                \"iso2\": {",
+									"                    \"type\": \"string\"",
+									"                },",
+									"                \"iso3\": {",
+									"                    \"type\": \"string\"",
+									"                },",
+									"                \"lat\": {",
+									"                    \"type\": \"number\"",
+									"                },",
+									"                \"long\": {",
+									"                    \"type\": \"number\"",
+									"                },",
+									"                \"flag\": {",
+									"                    \"type\": \"string\"",
+									"                }",
+									"            }",
+									"        },",
+									"        \"cases\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"todayCases\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"deaths\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"todayDeaths\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"recovered\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"todayRecovered\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"active\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"critical\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"casesPerOneMillion\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"deathsPerOneMillion\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"tests\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"testsPerOneMillion\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"population\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"continent\": {",
+									"            \"type\": \"string\"",
+									"        },",
+									"        \"oneCasePerPeople\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"oneDeathPerPeople\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"oneTestPerPeople\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"activePerOneMillion\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"recoveredPerOneMillion\": {",
+									"            \"type\": \"number\"",
+									"        },",
+									"        \"criticalPerOneMillion\": {",
+									"            \"type\": \"number\"",
+									"        }",
+									"    }",
+									"}",
+									"",
+									"if (jsonData.code === (200)) {",
+									"    console.log(\"Status code diferente de 200\");",
+									"} else {",
+									"    console.log(\"Status code 200\");",
+									"    //Realizando asserção do contrato",
+									"    pm.test(\"Contrato validado com sucesso\", () => { pm.response.to.have.jsonSchema(jsonSchema); });",
+									"    pm.test(\"Status code 200\", function () { pm.response.to.have.status(200); });",
+									"    pm.test(\"Pais selecionado para validação é : \" + `${pm.collectionVariables.get(\"country\")}`, function () {",
+									"        pm.expect(jsonData.country).to.eql(pm.collectionVariables.get(\"country\"))",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"urlBase\",\"https://disease.sh\")",
+									"pm.collectionVariables.set(\"country\",\"Brazil\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v3/covid-19/countries/Brasil?yesterday=Brasil&twoDaysAgo=Brasil&strict=Brasil&allowNull=Brasil",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v3",
+								"covid-19",
+								"countries",
+								"Brasil"
+							],
+							"query": [
+								{
+									"key": "yesterday",
+									"value": "Brasil"
+								},
+								{
+									"key": "twoDaysAgo",
+									"value": "Brasil"
+								},
+								{
+									"key": "strict",
+									"value": "Brasil"
+								},
+								{
+									"key": "allowNull",
+									"value": "Brasil"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "country",
+			"value": ""
+		}
+	]
+}

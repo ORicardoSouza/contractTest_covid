@@ -1,28 +1,18 @@
-// Usnado referencias do cypress
-/// <reference types= "cypress" /> 
+/// <reference types= "cypress" />
 
-// Importanto referencias ajv
-import Ajv from "ajv";
 
-// Gerando uma nova instancia do Ajv
-const ajv = new Ajv()
-
+// Pode ser usado em um arquivo de configuração de ambiente também
 const baseUrl = "https://disease.sh/"
 
 // ######################### Implementação #########################
 
 describe('Testando contrato da api https://corona.lmao.ninja', () => {
     it('Testando contrato', () => {
-        cy.request('GET', `${baseUrl}v3/covid-19/countries/Brasil`,) // Url  
-            .then((response) => { // Validações
-                cy.fixture('schema') // Arquivo de referencia para comparação de contrato
-                    .then((schema) => {
-                        const validate = ajv.compile(schema)
-                        const valid = validate(response.body)
-                        cy.log(response.body) // Exibindo log dentro do Cypress
-                        console.log(response.body) // Exibindo o log no inspector da pagina
-                        if (!valid) console.log(validate.erros) // Essa condição exive erro caso o contrato seja alterado  
-                    })
+        cy.request('GET', `${baseUrl}v3/covid-19/countries/Brasil?yesterday=Brasil&twoDaysAgo=Brasil&strict=Brasil&allowNull=Brasil`,)
+            .then((response) => {
+                expect(response.status).to.equal(200) // Validações do status da requisição
+                expect(response.body.country).equal("Brazil") // Validações do Pais Brazil
+               cy.validateSchema('contractSchema', response.body)
             })
-    });
-});
+    })
+})

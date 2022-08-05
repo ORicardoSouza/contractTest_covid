@@ -1,5 +1,6 @@
 {
     "type": "object",
+    "default": {},
     "required": [
         "updated",
         "country",
@@ -27,13 +28,16 @@
     ],
     "properties": {
         "updated": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "country": {
-            "type": "string"
+            "type": "string",
+            "default": ""
         },
         "countryInfo": {
             "type": "object",
+            "default": {},
             "required": [
                 "_id",
                 "iso2",
@@ -44,84 +48,110 @@
             ],
             "properties": {
                 "_id": {
-                    "type": "number"
+                    "type": "integer",
+                    "default": 0
                 },
                 "iso2": {
-                    "type": "string"
+                    "type": "string",
+                    "default": ""
                 },
                 "iso3": {
-                    "type": "string"
+                    "type": "string",
+                    "default": ""
                 },
                 "lat": {
-                    "type": "number"
+                    "type": "integer",
+                    "default": 0
                 },
                 "long": {
-                    "type": "number"
+                    "type": "integer",
+                    "default": 0
                 },
                 "flag": {
-                    "type": "string"
+                    "type": "string",
+                    "default": ""
                 }
             }
         },
         "cases": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "todayCases": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "deaths": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "todayDeaths": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "recovered": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "todayRecovered": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "active": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "critical": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "casesPerOneMillion": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "deathsPerOneMillion": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "tests": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "testsPerOneMillion": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "population": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "continent": {
-            "type": "string"
+            "type": "string",
+            "default": ""
         },
         "oneCasePerPeople": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "oneDeathPerPeople": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "oneTestPerPeople": {
-            "type": "number"
+            "type": "integer",
+            "default": 0
         },
         "activePerOneMillion": {
-            "type": "number"
+            "type": "number",
+            "default": 0.0
         },
         "recoveredPerOneMillion": {
-            "type": "number"
+            "type": "number",
+            "default": 0.0
         },
         "criticalPerOneMillion": {
-            "type": "number"
+            "type": "number",
+            "default": 0.0
         }
     }
 }
