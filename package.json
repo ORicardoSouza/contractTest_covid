@@ -7,7 +7,8 @@
     "cy:run":"npx cypress run --env allure=true",
     "allure:generate": "allure generate allure-results",
     "allure:open":"allure open allure-report",
-    "allure clear":"rm -r allure-results/ allure-report || true", 
+    "allure clear":"rm -r allure-results/ allure-report || true",
+    "test":"npx npm-run-all allure:clear cy:run allure:generate", 
     "cypress:open": "cypress open"
   },
   "author": "Ricardo Souza",
