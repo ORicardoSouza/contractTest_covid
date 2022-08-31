@@ -22,5 +22,4 @@ No arquivo package.json
 
 
 Obs: 
-Na Pasta Teste via Postam, existe uma arquivo com a collection de teste básico via postman.
 
