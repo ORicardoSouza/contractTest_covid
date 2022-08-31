@@ -4,6 +4,10 @@
   "description": "scripts para validar contrato",
   "main": "index.js",
   "scripts": {
+    "cy:run":"npx cypress run --env allure=true",
+    "allure:generate": "allure generate allure-results",
+    "allure:open":"allure open allure-report",
+    "allure clear":"rm -r allure-results/ allure-report || true", 
     "cypress:open": "cypress open"
   },
   "author": "Ricardo Souza",
@@ -12,6 +16,7 @@
     "cypress": "10.0.0"
   },
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.28.5",
     "ajv": "^8.11.0"
   }
 }
