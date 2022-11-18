@@ -1,3 +1,4 @@
-node_modules/*
 vscode/*
 cypress/videos*
+allure-report*
+allure-results*
