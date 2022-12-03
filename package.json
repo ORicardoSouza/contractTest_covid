@@ -6,17 +6,18 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "npx cypress run --config video=false --env allure=true",
-    "allure:generate": "allure generate allure-results",
-    "allure:open": "allure open allure-report",
-    "allure:clear": "rm -r allure-results/ allure-report || True",
-    "test": "npx npm-run-all allure:clear cy:run allure:generate"
+    "allure:generate": "allure generate rm allure-results --clean",
+    "allure:report": "allure generate allure-results --clean -o allure-report && allure open",
+    "allure:clear": "rm -r allure-results/ allure-report cypress/screenshots || true",
+    "pretest": "npm run allure:clear",
+    "test": "npm run cy:run || npm run posttest",
+    "posttest": "npm run allure:report"
   },
   "author": "Ricardo Souza",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
-    "cypress": "^10.7.0",
-    "@shelex/cypress-allure-plugin": "^2.28.5",
-    "ajv": "^8.11.0"
+    "@shelex/cypress-allure-plugin": "^2.34.0",
+    "ajv": "^8.11.2",
+    "cypress": "^10.11.0"
   }
 }
