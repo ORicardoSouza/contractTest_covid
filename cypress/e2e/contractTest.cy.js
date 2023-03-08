@@ -1,22 +1,14 @@
 /// <reference types= "cypress" />
-
-    // ######################### Implementação #########################
-
+import * as getContry from "../services/getCountry";
+// ######################### Implementação #########################
 describe('Testando contrato da api https://corona.lmao.ninja', () => {
     it('Testando contrato', () => {
-        cy.api({
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json'
-            },
-            url: `v3/covid-19/countries/Brasil?yesterday=Brasil&twoDaysAgo=Brasil&strict=Brasil&allowNull=Brasil`,
+        cy.section(`Testando Plugins`)
+        getContry.getCoutry().then((resGetContry) => {        
+            expect(resGetContry.status).to.equal(200) // Validações do status da requisição
+            expect(resGetContry.body.country).equal("Brazil") // Assert do Pais Brazil
+            cy.validateSchema('contractSchema', resGetContry.body);
         })
-            .then((response) => {
-                expect(response.status)
-                    .to.equal(200) // Validações do status da requisição
-                expect(response.body.country)
-                    .equal("Brazil") // Validações do Pais Brazil
-                cy.validateSchema('contractSchema', response.body);
-            })
+        //cy.step(`asserções`)
     })
 })
