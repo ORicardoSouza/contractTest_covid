@@ -1,3 +1,17 @@
+<div align="center">
+  <div>
+    <img 
+    src="https://cloud.githubusercontent.com/assets/1268976/20607953/d7ae489c-b24a-11e6-9cc4-91c6c74c5e88.png"
+    width="400"
+    />
+  </div>
+  <br/>
+  <br/>
+	</a>
+  <p>Busque aprender sempre mais e mais </p>
+ 
+</div>
+<br/>
 
 # contractTest_covid
 Projeto simples de automação de teste de contrato.
