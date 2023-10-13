@@ -1,3 +1,4 @@
 allure-report
 allure-results
 cypress/videos
+node_modules
