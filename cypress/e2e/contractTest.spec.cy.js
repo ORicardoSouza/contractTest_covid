@@ -5,7 +5,7 @@ describe('Testando contrato da api Covid19 Brazil API', () => {
     it('Buscando dados registrados de todos os estados', () => {
         cy.getAllstatesBrasilian()
     })
-    it('Buscando dados registrados de todos os estados', () => {
+    it('Buscando dados registrados de todos os estados por UF', () => {
         // Chamadas sequenciais da função com siglas de estados
         cy.getReportUf('AC');
 
