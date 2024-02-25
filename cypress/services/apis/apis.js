@@ -1,4 +1,4 @@
-function getAllstatesBrasilian() {
+function getAllStatesBrasilian() {
     return cy.api({
         method: 'GET',
         url: `/api/report/v1`,
@@ -38,4 +38,4 @@ function getAllPais() {
     });
 }
 
-export { getAllstatesBrasilian, getReportUf, getReportData, getPais, getAllPais };
+export { getAllStatesBrasilian, getReportUf, getReportData, getPais, getAllPais };

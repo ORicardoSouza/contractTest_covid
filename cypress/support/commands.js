@@ -1,5 +1,5 @@
 /// <reference types= "cypress" />
-import { getAllstatesBrasilian, getReportUf, getReportData, getPais, getAllPais } from "../services/apis/apis";
+import { getAllStatesBrasilian, getReportUf, getReportData, getPais, getAllPais } from "../services/apis/apis";
 var data = new Date();
 var dia = data.getDate();
 var mes = data.getMonth() + 1; // Os meses começam do zero, então adicionamos 1
@@ -9,8 +9,8 @@ if (dia < 10) { dia = '0' + dia; }
 if (mes < 10) { mes = '0' + mes; }
 var data = ano + mes + dia;
 
-Cypress.Commands.add('getAllstatesBrasilian', () => {
-    getAllstatesBrasilian().then((response) => {
+Cypress.Commands.add('getAllStatesBrasilian', () => {
+    getAllStatesBrasilian().then((response) => {
         expect(response.status).to.eq(200);
         const contrato = {
             "data": [

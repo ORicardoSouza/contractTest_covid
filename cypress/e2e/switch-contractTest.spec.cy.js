@@ -3,7 +3,7 @@
 // ######################### Implementação #########################
 describe('Testando contrato da api Covid19 Brazil API usando com switch', () => {
     it('Buscando dados registrados de todos os estados', () => {
-        cy.getAllstatesBrasilian()
+        cy.getAllStatesBrasilian()
     })
     it('Buscando dados registrados de todos os estados', () => {
         const ufs = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
@@ -25,8 +25,8 @@ describe('Testando contrato da api Covid19 Brazil API usando com switch', () => 
 
 function switchFunction(action, parameter) {
     switch (action) {
-        case 'getAllstatesBrasilian':
-            cy.getAllstatesBrasilian();
+        case 'getAllStatesBrasilian':
+            cy.getAllStatesBrasilian();
             break;
         case 'getReportUf':
             cy.getReportUf(parameter);

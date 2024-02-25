@@ -3,7 +3,7 @@
 // ######################### Implementação #########################
 describe('Testando contrato da api Covid19 Brazil API', () => {
     it('Buscando dados registrados de todos os estados', () => {
-        cy.getAllstatesBrasilian()
+        cy.getAllStatesBrasilian()
     })
     it('Buscando dados registrados de todos os estados por UF', () => {
         // Chamadas sequenciais da função com siglas de estados
