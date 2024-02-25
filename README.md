@@ -1,102 +1,84 @@
-<div align="center">
-  <div>
-    <img 
-    src="https://cloud.githubusercontent.com/assets/1268976/20607953/d7ae489c-b24a-11e6-9cc4-91c6c74c5e88.png"
-    width="400"
-    />
-  </div>
-  <br/>
-  <br/>
-	</a>
-  <p>Busque aprender sempre mais e mais </p>
- 
-</div>
-<br/>
+# README
 
-# contractTest_covid
-Projeto simples de automação de teste de contrato.
+![Cypress Logo](https://cloud.githubusercontent.com/assets/1268976/20607953/d7ae489c-b24a-11e6-9cc4-91c6c74c5e88.png)
 
+Este repositório contém testes funcionais automatizados utilizando o framework Cypress. 
+Os testes são projetados para verificar a funcionalidade e comportamento de uma api simples com Gets
 
-## Referência
+## Instalação
 
- - [Cypress](https://www.cypress.io/)
- - [ajv](https://ajv.js.org/)
- - [Allure-report plugin](https://www.npmjs.com/package/@shelex/cypress-allure-plugin)
+Antes de executar os testes, certifique-se de ter o Node.js e o npm (Node Package Manager) instalados em sua máquina.
+Siga os passos abaixo para configurar e executar os testes:
 
-# Guia de Instalação
-Este guia irá fornecer informações sobre como instalar as dependências necessárias para executar este projeto.
+1. Clone este repositório para sua máquina local:
 
-# Cypress
-O Cypress pode ser instalado globalmente ou localmente no projeto. Para instalar globalmente, execute o seguinte comando no terminal:
+```bash
+git clone https://github.com/ORicardoSouza/contractTest_covid.git
+cd nome-do-repositorio
+```
 
-````node
-npm install -g cypress
-````
-Para instalar localmente no projeto, execute o seguinte comando:
+2. Instale as dependências do projeto usando o npm:
 
-````
-npm install cypress --save-dev
-````
+```bash
+npm install
+```
 
-# Ajv
-O Ajv pode ser instalado utilizando o gerenciador de pacotes npm. Execute o seguinte comando no terminal:
+## Executando os Testes
 
-````node
-npm install ajv
-````
+Para executar os testes, você pode utilizar os seguintes comandos:
 
-# Allure Report
-O Allure Report pode ser instalado utilizando o gerenciador de pacotes npm. Execute os seguintes comandos no terminal:
+- Executar testes no modo headless (sem interface gráfica):
 
-````node
-npm install @shelex/cypress-allure-plugin --save-dev
-npm install allure-commandline --save-dev
-````
+```bash
+npm run deleteResults && npm run deleteScreenshots && npm run cy:run
+```
 
-Configuração
-Após a instalação, adicione o seguinte script ao arquivo package.json:
+- Executar testes com interface gráfica:
 
-````json
-"cy:run": "npx cypress run --env allure=true"
-````
-Este script irá executar os testes e gerar os resultados para o Allure Report.
+```bash
+npm run cy:open
+```
 
-# Executando os Testes
-Para executar os testes, utilize o seguinte comando:
+Os testes serão executados automaticamente em segundo plano e você verá os resultados no terminal.
 
-````js
-npm run cy:run
-````
-Após a execução dos testes, os resultados serão gerados na pasta allure-results. Para gerar o relatório, execute o seguinte comando:
+---
 
-````js
-npm run allure:generate
-````
-Para visualizar o relatório gerado, execute o seguinte comando:
+## Bibliotecas Utilizadas
 
-````js
-npm run allure:open
-````
-Para remover os resultados antigos e gerar um novo relatório, execute o seguinte comando:
+- **Cypress**: Ferramenta de teste de frontend end-to-end que permite escrever e executar testes em navegadores.
+  - Versão: ^13.6.5
+  - [Documentação](https://docs.cypress.io/guides/overview/why-cypress.html)
 
-````js
-npm run allure:clear
-````
+- **Mocha JUnit Reporter**: Reporter para Mocha que gera arquivos de saída no formato JUnit XML, útil para integração com sistemas de integração contínua.
+  - Versão: ^2.2.1
+  - [GitHub](https://github.com/michaelleeallen/mocha-junit-reporter)
 
-Para executar todos esses comandos de uma só vez, execute o seguinte comando:
+- **Moment Timezone**: Biblioteca para manipulação de datas e horas, especialmente focada em fusos horários.
+  - Versão: ^0.5.45
+  - [Documentação](https://momentjs.com/timezone/)
 
-````js
-npm run test
-````
+- **Node Localstorage**: Implementação do LocalStorage do navegador para Node.js, útil para simular o comportamento do navegador em testes.
+  - Versão: ^3.0.5
+  - [GitHub](https://github.com/lmaccherone/node-localstorage)
 
-Com essas configurações e comandos, o ambiente estará pronto para executar os testes do projeto.
+- **Open**: Utilitário para abrir URLs, arquivos e executáveis.
+  - Versão: ^10.0.3
+  - [GitHub](https://github.com/sindresorhus/open)
 
-Dica para script para Allure.
-# package.json
-````json
-    "cy:run":"npx cypress run --env allure=true", (Executa os testes)
-    "allure:generate": "allure generate allure-results", (Gerador de reports)
-    "allure:open":"allure open allure-report", (Abrir os reports)
-    "allure clear":"rm -r allure-results/ allure-report || true", (Apaga resultados anteriores)
-    "test":"npx npm-run-all allure:clear cy:run allure:generate" (Multipla execução de comandos)
-````    
+- **XmlDom**: Implementação de DOM e XML para Node.js.
+  - Versão: ^0.6.0
+  - [GitHub](https://github.com/jindw/xmldom)
+
+- **Git Repo Name**: Obtenha o nome do repositório Git a partir de uma URL.
+  - Versão: ^1.0.1
+  - [GitHub](https://github.com/jonschlinkert/git-repo-name)
+
+- **Cypress Plugin API**: API para criar plugins para o Cypress.
+  - Versão: ^2.11.1
+  - [Documentação](https://docs.cypress.io/guides/tooling/plugins-guide.html)
+
+## Contribuição
+
+Contribuições são bem-vindas!
+
+--- 
