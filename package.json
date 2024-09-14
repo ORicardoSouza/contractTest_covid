@@ -1,10 +1,13 @@
 {
   "name": "covid_19_brazil_api",
   "version": "1.0.0",
-  "description": "scripts para validar contrato",
+  "description": "scripts para validar contratos",
   "main": "index.js",
+  "theme": "dark",
   "scripts": {
-    "updateLibrary": "npm install",
+    "install:dependence": "npm install",
+    "check:updates:up": "npx npm-check-updates -u",
+    "check:updates": "npx npm-check-updates",
     "deleteResults": "rm results/* || true",
     "deleteScreenshots": "rm cypress/screenshots/** || true",
     "cy:open": "cypress open",
@@ -17,13 +20,14 @@
   "author": "Ricardo Souza",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.6.5",
+    "cypress": "^13.14.2",
+    "cypress-dark": "^1.8.3",
+    "cypress-plugin-api": "^2.11.2",
+    "git-repo-name": "^1.0.1",
     "mocha-junit-reporter": "^2.2.1",
     "moment-timezone": "^0.5.45",
     "node-localstorage": "^3.0.5",
-    "open": "^10.0.3",
-    "xmldom": "^0.6.0",
-    "git-repo-name": "^1.0.1" ,
-    "cypress-plugin-api": "^2.11.1"
+    "open": "^10.1.0",
+    "xmldom": "^0.6.0"
   }
 }
